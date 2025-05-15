@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+</head>
+<body>
+  <div style="z-index: -1; position: relative; " >
+    <img  src="https://up.yimg.com/ib/th?id=OIP.MlapEAaypUQIfoe6r2mjaAHaEK&pid=Api&rs=1&c=1&qlt=95&w=216&h=121" width="100%" height="800px" alt="">
+    </div>
+    <div class="container col-md-4 col-10 ">
+    <div style="position: absolute; top: 260px; background-color: rgba(0, 73, 152, 0.285); backdrop-filter: blur; " class="col-10 col-md-4  border   pt-1 rounded-5  text-center container ">
+      <h2 class="text-center text-warning b-5 fs-lg mt-3">LOGIN</h2>
+      <form action="" class="ms-5"> 
+        <input id="Name" type="text" class="form-control m-2 w-75 border rounded-4" placeholder="User Name"> <br>
+        <input id="pasword" type="password" class="form-control m-2 mb-4 w-75 border rounded-4" placeholder="password"> 
+      </form> 
+      <button class="btn btn-warning mb-3  " onclick="logs()">LOGIN</button> <br>
+       <span class="text-light">Not have account?</span>
+     <a href="./reg.html">Register Now</a>
+      
+        </div>
+      </div>
+    </div>
+
+  <script>
+
+    function logs(){ 
+        
+         let USERName=Name.value 
+         
+         if(USERName in localStorage){
+          let pswd= pasword.value
+          let user = JSON.parse(localStorage.getItem(USERName))
+          let PSWD= user.Password
+            if( pswd ===PSWD){
+              let user = JSON.parse(localStorage.getItem(USERName))
+              let username= user.UserName
+              window.location="./main1.html" 
+              localStorage.setItem("username" ,username)
+          }
+            
+           
+            else {
+                alert("incorrect password ")
+            }
+         }
+
+         else{alert("User not found")}
+    }
+
+    function register(){
+      window.location ="./reg.html"
+    }
+  </script>
+
+
+</body>
+</html>
